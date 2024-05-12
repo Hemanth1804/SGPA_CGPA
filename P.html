@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P-Cycle</title>
+    <link rel="stylesheet" href="clc.css">
+    <script  src="sgpa.js"></script>
+    <script  src="cgpa.js"></script>
+</head>
+<body>
+    <header class="h_header">
+       <center><br>VTU SGPA Calculator</br>2022 Scheme</center> 
+    </header>
+   <p id="usnDisplay">
+</p>
+   <p id="semDisplay"></p>
+   <div class="container">
+    <center><input type="text" id="result" disabled></center>
+    <form action="actioon.php">
+    <table>
+        <thead>
+           
+               <caption>Calculate Physics-Cycle SGPA</caption> 
+    
+        </thead>
+        <tbody>
+            <tr>
+                <th class="column1">Subjects</th>
+                <th class="column2">External Marks</th>
+            </tr>
+            <tr>
+                <td>Mathametics I/II</td>
+                <td>  <input type="text" name="" id="maths" placeholder="enter marks"></td>
+            </tr>
+            <tr>
+                <td>Physics</td>
+                <td><input type="text" name="" id="phy" placeholder="enter marks"></td>
+            </tr>
+            <tr>
+                <td>Principles Of Programming Using C</td>
+                <td><input type="text" name="" id="pop" placeholder="enter marks"></td>
+            </tr>
+            <tr>
+                <td>Communicative English</td>
+                <td><input type="text" name="" id="eng" placeholder="enter marks"></td>
+            </tr>
+            <tr>
+                <td>Balake Kannada/Samskritika Kannada</td>
+                <td><input type="text" name="" id="kann" placeholder="enter marks"></td>
+            </tr>
+            <tr>
+                <td>Innovation And Design Thinking</td>
+                <td><input type="text" name="" id="idt" placeholder="enter marks"></td>
+            </tr>
+            <tr>
+                <td>Introduction To Mechanical Engineering</td>
+                <td><input type="text" name="" id="mech" placeholder="enter marks"></td>
+            </tr>
+            <tr>
+                <td>Introduction To IOT</td>
+                <td><input type="text" name="" id="iot" placeholder="enter marks"></td>
+            </tr>
+        </tbody>
+    </table>
+        <div>
+            <center> <input type="button" value="calculate" id="sgpa" onclick="calculate()"></center>
+       </div>
+       </form>
+   </div>
+   <div class="container 2">
+    <center><input type="text" id="result_cgpa" disabled></center>
+    <form action="actioon.php">
+        <table>
+            <thead>
+               
+                   <caption>Calculate CGPA</caption> 
+        
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="column1">SEM</th>
+                    <th class="column2">SGPA</th>
+                </tr>
+                <tr>
+                    <td>SEM-1</td>
+                    <td>  <input type="text" name="" id="sem1" placeholder="enter marks"></td>
+                </tr>
+                <tr>
+                    <td>SEM-2</td>
+                    <td><input type="text" name="" id="sem2" placeholder="enter marks"></td>
+                </tr>
+                <tr>
+                    <td>SEM-3</td>
+                    <td><input type="text" name="" id="sem3" placeholder="enter marks"></td>
+                </tr>
+                <tr>
+                    <td>SEM-4</td>
+                    <td><input type="text" name="" id="sem4" placeholder="enter marks"></td>
+                </tr>
+                <tr>
+                    <td>SEM-5</td>
+                    <td><input type="text" name="" id="sem5" placeholder="enter marks"></td>
+                </tr>
+                <tr>
+                    <td>SEM-6</td>
+                    <td><input type="text" name="" id="sem6" placeholder="enter marks"></td>
+                </tr>
+                <tr>
+                    <td>SEM-7</td>
+                    <td><input type="text" name="" id="sem7" placeholder="enter marks"></td>
+                </tr>
+                <tr>
+                    <td>SEM-8</td>
+                    <td><input type="text" name="" id="sem8" placeholder="enter marks"></td>
+                </tr>
+            </tbody>
+        </table>
+            <div>
+                <center> <input type="button" value="calculate" id="cgpa" onclick="calculate_cgpa()"></center>
+           </div>
+           </form>
+   </div>
+<script>
+    // Function to get the value of a parameter by name from the URL
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    // Get the value of the USN parameter from the URL
+    var usn = getParameterByName('USN');
+
+    // Display the USN on the page
+    var usnDisplayElement = document.getElementById('usnDisplay');
+    if (usn) {
+        usnDisplayElement.textContent = "USN: " + usn;
+    } else {
+        usnDisplayElement.textContent = "USN not found.";
+    }
+   
+    // Get the value of the SEM parameter from the URL
+    var sem = getParameterByName('sem');
+
+    // Display the SEM on the page
+    var semDisplayElement = document.getElementById('semDisplay');
+    if (sem) {
+        semDisplayElement.textContent = "SEM: " + sem;
+    } else {
+        semDisplayElement.textContent = "SEM not found.";
+    }
+</script>
+
+</body>
+</html>

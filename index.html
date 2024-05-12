@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sgpa_style.css">
+    <title>VTU SGPA CALCULATER</title>
+</head>
+<body>
+    <div class="container">
+        <header class="box">
+            Enter Your Cource Information
+        </header>
+        <div class="sub">
+            <form action="">
+        <select name="" id="branch" class="select_c" required>
+            <option value="">--Branch--</option>
+            <option value="C">Chemistry Cycle</option>
+            <option value="P">Physics Cycle</option>
+            <option value="cse">CSE Stream</option>
+        </select>
+        <select name="" id="sem" class="select_c" required>
+            <option value="">--Sem--</option>
+            <option value="1">1st SEM</option>
+            <option value="2">2nd SEM</option>
+            <option value="3">3rd SEM</option>
+        </select>
+        <select name="" id="scheme" class="select_c" required>
+            <option value="">--Scheme--</option>
+            <option value="2022">2022 Scheme</option>
+        </select>
+        <input type="text" name="" class="select_c" id="usn" placeholder="Enter Your USN">
+        <button type="button" onclick="redirect()">submit</button>
+        </form>
+    </div>
+    </div>
+    <script>
+        function redirect() {
+            var branch = document.getElementById('branch').value;
+            var sem = document.getElementById('sem').value;
+            var scheme = document.getElementById('scheme').value;
+            var USN = document.getElementById('usn').value;
+            
+            // Check if USN is exactly 10 characters long
+            if (USN.length !== 10) {
+                alert("USN should contain exactly 10 letters.");
+                return; // Exit the function if the condition is not met
+            }
+    
+            if (branch === 'P' && (sem === '1' || sem === '2') && scheme === '2022') {
+                window.location.href = 'p.html?USN=' + USN + '&sem=' + sem;
+            } else if (branch === 'C' && (sem === '1' || sem === '2') && scheme === '2022') {
+                window.location.href = 'C.html?USN=' + USN + '&sem=' + sem;
+            } else if (branch === 'cse' && sem === '3' && scheme === '2022') {
+                window.location.href = 'CSE.html?USN=' + USN + '&sem=' + sem;
+            } else {
+                alert("Choose the correct option.");
+            }
+        }
+    </script>
+    
+    
+</body>
+</html>
